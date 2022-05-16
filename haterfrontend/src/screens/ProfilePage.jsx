@@ -17,7 +17,7 @@ export default function ProfilePage(props) {
   const [userPosts, setUserPosts] = useState([]);
 
   let fetchUserPosts = () => {
-    fetch(`https://haterbackend.herokuapp.com/allHates?haterid=${user.id}`)
+    fetch(`http://localhost:8000/allHates?haterid=${user.id}`)
       .then((res) => res.json())
       .then((data) => {
         setUserPosts(data);

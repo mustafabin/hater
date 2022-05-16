@@ -24,7 +24,7 @@ export default function PostComment(props) {
         post_id: post_id,
       }),
     };
-    fetch(`https://haterbackend.herokuapp.com/addComment`, options)
+    fetch(`http://localhost:8000/addComment`, options)
       .then((res) => res.json())
       .then(() => (commentText.current.value = ""))
       .then(() => setTogglestate((prev) => !prev))

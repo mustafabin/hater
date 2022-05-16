@@ -56,7 +56,7 @@ class LogoutView(APIView):
         except:
             return Response({'error': 'Something went wrong when logging out'})
 
-@method_decorator(csrf_protect, name="dispatch")
+
 class SignupView(APIView):
     permission_classes = (permissions.AllowAny,)
 
