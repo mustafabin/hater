@@ -7,11 +7,12 @@
   width: 20%;
   position: fixed;
   left: 0;
-  border-right: 1px solid var(--hate-red);
+  border-right: 1px solid;
   color: rgb(96, 95, 95);
+  background-color: rgba(255, 0, 0, 0.287);
+  border-color: rgba(255, 0, 0, 0.151);
   z-index: 2;
 }
-
 .top {
   display: flex;
   justify-content: center;
@@ -51,7 +52,7 @@
 .protabLinks:hover {
   border-radius: 10rem;
   color: var(--hate-red);
-  background-color: rgb(250, 167, 167);
+  background-color: rgb(255, 255, 255);
 }
 .exit {
   display: none;
@@ -70,7 +71,10 @@
   border-radius: 100px;
   background-color: white;
 }
-
+.propic img {
+  max-width: 80px;
+  max-height: 80px;
+}
 .tweetcount {
   display: flex;
   height: 40%;
@@ -96,7 +100,6 @@
   height: 80%;
   width: 100%;
   text-decoration: none;
-  background-color: white;
   text-align: center;
   /* background-color: black; */
   /* border: 1px solid blue; */
@@ -142,6 +145,12 @@
   background-color: whitesmoke;
 }
 
+.nav-guest-signup {
+  border-radius: 100px;
+}
+.nav-guest-signup-link {
+  border-radius: 100px;
+}
 @keyframes slideRight {
   from {
     margin-left: -100%;

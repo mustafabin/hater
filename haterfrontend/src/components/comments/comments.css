@@ -92,10 +92,18 @@
   justify-content: center;
 }
 /* keep this break point  */
-@media only screen and (max-width: 975px) {
-}
 @media only screen and (max-width: 920px) {
   .comment-hate-post {
     margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .comment-main-container {
+    border: 1px solid red;
+  }
+  .comment-section-main-container {
+    width: 100vw;
+    margin-left: 0px;
   }
 }

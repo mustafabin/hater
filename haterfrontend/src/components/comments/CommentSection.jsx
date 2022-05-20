@@ -3,7 +3,7 @@ import "./comments.css";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Profilebutton from "../../components/profilebutton/Profilebutton.js";
-import Profiletab from "../../components/profiletab/Profiletab.js";
+import Profiletab from "./CommentNav.jsx";
 import HatePost from "./HatePost.jsx";
 import PostComment from "./PostComment.jsx";
 import MiniComments from "./MiniComments.jsx";

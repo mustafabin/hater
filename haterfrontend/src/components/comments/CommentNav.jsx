@@ -1,4 +1,4 @@
-import "./Profiletab.css";
+import "../../components/profiletab/Profiletab.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -57,7 +57,7 @@ function Profile(props) {
       </div>
       {user.tag ? (
         <div className="bottom">
-          <Link to="/" className="pronavs">
+          <Link to="/home" className="pronavs">
             <div className="protabLinks">Home</div>
           </Link>
           <Link to="/profile" className="pronavs">

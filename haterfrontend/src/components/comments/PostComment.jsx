@@ -24,7 +24,13 @@ export default function PostComment(props) {
     };
     fetch(`https://haterbackend.herokuapp.com/addComment`, options)
       .then((res) => res.json())
-      .then(() => (commentText.current.value = ""))
+      .then((data) => {
+        if (!data["error"]) {
+          commentText.current.value = "";
+        } else {
+          alert(data["error"]);
+        }
+      })
       .then(() => setTogglestate((prev) => !prev))
       .catch((err) => alert(err));
   };
