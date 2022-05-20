@@ -17,6 +17,7 @@ export default function Hates() {
     }
   };
   useEffect(() => {
+    console.log(togglePageButton);
     const fetchHates = async () => {
       const response = await getHates();
       setHates(response);
