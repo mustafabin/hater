@@ -64,7 +64,7 @@
   height: 40px;
   width: 40px;
   border-radius: 200px;
-  background-image: url("../components/profilebutton/logo.png");
+  background-image: url("../components/profilebutton/icons8-menu-50.png");
   background-size: cover;
   filter: invert(20%) sepia(57%) saturate(4288%) hue-rotate(344deg)
     brightness(91%) contrast(105%);
@@ -84,7 +84,7 @@
   height: 40px;
   width: 40px;
   border-radius: 200px;
-  background-image: url("../components/profilebutton/logo.png");
+  background-image: url("../components/profilebutton/icons8-menu-50.png");
   background-size: cover;
   border: 1px solid rgb(12, 188, 208);
 }
