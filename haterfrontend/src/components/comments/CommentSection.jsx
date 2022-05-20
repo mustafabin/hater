@@ -3,7 +3,7 @@ import "./comments.css";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Profilebutton from "../../components/profilebutton/Profilebutton.js";
-import Profiletab from "./CommentNav.jsx";
+import Profiletab from "../profiletab/Profiletab.js";
 import HatePost from "./HatePost.jsx";
 import PostComment from "./PostComment.jsx";
 import MiniComments from "./MiniComments.jsx";
@@ -44,6 +44,7 @@ export default function CommentSection() {
         click={closeBox}
         show={show}
         picture={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
+        homeRoute="/home"
       />
       <div className="comment-section-main-container">
         <HatePost hate={hatepost}></HatePost>

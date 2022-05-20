@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Profile(props) {
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
-
+  let homeRoute = props.homeRoute;
   // Modal constants
 
   const [showModal, setShowModal] = useState(false);
@@ -57,7 +57,7 @@ function Profile(props) {
       </div>
       {user.tag ? (
         <div className="bottom">
-          <Link to="/" className="pronavs">
+          <Link to={homeRoute} className="pronavs">
             <div className="protabLinks">Home</div>
           </Link>
           <Link to="/profile" className="pronavs">
