@@ -12,11 +12,6 @@ function Profile(props) {
   let homeRoute = props.homeRoute;
   // Modal constants
 
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
   let signOut = () => {
     let knoxToken = localStorage.getItem("knox");
     let options = {

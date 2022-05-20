@@ -12,6 +12,7 @@ export default function Hates() {
   const [currentPage, setCurrentPage] = useState([0, 10]);
   const [showEndButton, setShowEndButton] = useState(false);
   let nextPage = () => {
+    //go to the next page as long as we didnt hit the end
     if (hates.length > currentPage[1]) {
       setCurrentPage((prev) => [prev[1], prev[1] + 10]);
     }
@@ -26,6 +27,8 @@ export default function Hates() {
 
   //to track what page we are on
   useEffect(() => {
+    //if the current page index is greater than or equal to the total hate length then
+    // we are at the end and should show a different button
     hates.length <= currentPage[1]
       ? setShowEndButton(true)
       : setShowEndButton(false);
