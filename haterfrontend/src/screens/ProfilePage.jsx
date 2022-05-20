@@ -3,6 +3,7 @@ import "../styles/ProfilePage.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MiniHates from "../components/miniHates/miniHates.js";
+import HateAccount from "../components/hateAccount/hateAccount.js"
 import { getAllHates } from "../services/hates.js";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import MessageIcon from "@mui/icons-material/Message";
@@ -27,7 +28,7 @@ export default function ProfilePage(props) {
       });
   };
   let fetchHates = () => {
-    fetch(`https://haterbackend.herokuapp.com/allHates`)
+    fetch(`https://haterbackend.herokuapp.com/user_Profile/`)
       .then((res) => res.json())
       .then((data) => {
         setDatas(data);
@@ -92,25 +93,25 @@ export default function ProfilePage(props) {
             <form className="landingForm">
               <input
                 className="landingLoginInput"
-                placeholder="Search Tag"
+                placeholder="Username"
                 type="text"
                 name="name"
                 onChange={(e) => {
                   e.preventDefault();
                   setSearch(e.target.value);
                 }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
               />
             </form>
             {datas.map(
               (dater) =>
-                dater.hate_tag.toUpperCase().includes(search.toUpperCase()) && (
-                  <MiniHates
-                    hate_tag={dater.hate_tag}
-                    hater_name={dater.hater_name}
-                    hate={dater.hate}
-                    hate_count={dater.hate_count}
-                    rehate_count={dater.rehate_count}
-                    crit_count={dater.crit_count}
+                dater.name.toUpperCase().includes(search.toUpperCase()) && (
+                  <HateAccount
+                    hate_tag={dater.tag}
+                    hate_username={dater.name}
+              
                   />
                 )
             )}

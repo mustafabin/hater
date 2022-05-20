@@ -15,12 +15,11 @@ export default function CommentSection() {
   const [comments, setComments] = useState(null);
   const [togglestate, setTogglestate] = useState(true);
   const [show, setShow] = useState({ display: "none" });
+  const [slideIn, setSlideIn] = useState({ transform: "translate(-1000px, 0%)" });
   const closeBox = () => {
     setShow({ display: "none" });
   };
-  const handleClick = () => {
-    setShow({ display: "flex" });
-  };
+
   let fetchComments = () => {
     fetch(`https://haterbackend.herokuapp.com/getHate?hateid=${hateid}`)
       .then((res) => res.json())
@@ -38,11 +37,10 @@ export default function CommentSection() {
   }, [togglestate]);
   return (
     <div className="comment-main-container">
-      <Profilebutton click={handleClick} />
+      <Profilebutton setSlideIn={setSlideIn}/>
       <Profiletab
         name={user.name}
-        click={closeBox}
-        show={show}
+        setShow={slideIn}
         picture={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
         homeRoute="/home"
       />

@@ -5,24 +5,21 @@ import Profilebutton from "../components/profilebutton/Profilebutton.js";
 import Profiletab from "../components/profiletab/Profiletab.js";
 import Hates from "../components/hates/Hates";
 import { useSelector } from "react-redux";
+import MENU from "../components/profilebutton/icons8-menu-50.png";
+import GIF from "../components/profilebutton/menu.gif";
 
 function Home() {
   const user = useSelector((state) => state.user);
-  const [show, setShow] = useState({ display: "none" });
-  const closeBox = () => {
-    setShow({ display: "none" });
-  };
-  const handleClick = () => {
-    setShow({ display: "flex" });
-  };
+  const [slideIn, setSlideIn] = useState({ transform: "translate(-1000px, 0%)" });
 
+
+ 
   return (
     <div className="fullDiv">
-      <Profilebutton click={handleClick} />
+      <Profilebutton setSlideIn={setSlideIn}/>
       <Profiletab
+        setShow={slideIn}
         name={user.name}
-        click={closeBox}
-        show={show}
         picture={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
         homeRoute="/"
       />

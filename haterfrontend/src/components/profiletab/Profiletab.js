@@ -34,11 +34,8 @@ function Profile(props) {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="profile" style={props.show}>
+    <div className="profile" style={props.setShow}>
       <div className="top">
-        <div className="exit" onClick={props.click}>
-          x
-        </div>
         <div className="propic">
           <img
             src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}

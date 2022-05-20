@@ -1,14 +1,23 @@
-.probutton {
+.proButtonBack {
   display: flex;
-  height: 40px;
-  width: 40px;
+  width: 45px;
+  height: 45px;
   position: fixed;
+  justify-content: center;
+  align-items: center;
   border: 1px solid rgb(12, 188, 208);
   border-radius: 200px;
+  z-index: 5;
   top: 5px;
   left: 5px;
-  background-image: url("./logo.png");
-  background-size: cover;
-  z-index: 3;
+  background-color: white;
 }
-
+.probutton {
+  display: flex;
+  border-radius: 200px;
+  height: 90%;
+  width: 90%;
+  position: relative;
+  /* background-image: url("./icons8-menu-50.png"); */
+  background-size: cover;
+}
