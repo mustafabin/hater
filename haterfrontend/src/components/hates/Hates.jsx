@@ -10,14 +10,13 @@ export default function Hates() {
   const [hates, setHates] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [currentPage, setCurrentPage] = useState([0, 10]);
-  const [togglePageButton, setTogglePageButton] = useState(false);
+  const [showEndButton, setShowEndButton] = useState(false);
   let nextPage = () => {
     if (hates.length > currentPage[1]) {
       setCurrentPage((prev) => [prev[1], prev[1] + 10]);
     }
   };
   useEffect(() => {
-    console.log(togglePageButton);
     const fetchHates = async () => {
       const response = await getHates();
       setHates(response);
@@ -27,8 +26,11 @@ export default function Hates() {
 
   //to track what page we are on
   useEffect(() => {
-    if (hates.length < currentPage[1]) setTogglePageButton((prev) => !prev);
-  }, [currentPage]);
+    console.log(hates.length, currentPage[1]);
+    hates.length < currentPage[1]
+      ? setShowEndButton(true)
+      : setShowEndButton(false);
+  }, [hates, currentPage]);
   return (
     <div className="hates-box">
       <div className="hates-form-container">
@@ -38,20 +40,20 @@ export default function Hates() {
         <HatesFeed hates={hates} setToggle={setToggle} pageNum={currentPage} />
       </div>
       <div className="hates-feed-pages-div">
-        {togglePageButton ? (
+        {!showEndButton ? (
+          <Button color="error" variant="outlined" onClick={nextPage}>
+            Next Page
+          </Button>
+        ) : (
           <Button
             color="error"
             variant="outlined"
             onClick={() => {
               setCurrentPage([0, 10]);
-              setTogglePageButton((prev) => !prev);
+              setShowEndButton(false);
             }}
           >
             Back To Front Page
-          </Button>
-        ) : (
-          <Button color="error" variant="outlined" onClick={nextPage}>
-            Next Page
           </Button>
         )}
       </div>
