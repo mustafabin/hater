@@ -142,6 +142,12 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ]
 }
+
+from datetime import timedelta
+REST_KNOX = {
+  'TOKEN_TTL': timedelta(hours=340),
+  'AUTO_REFRESH': True,
+}
 # this line allows for any origin to make requests to our api
 # post M.V.P we should only white list hate.rip
 CORS_ORIGIN_ALLOW_ALL = True

@@ -61,7 +61,6 @@ export default function Hate({ hateData, setToggle }) {
           <Link className="hateLink" to={`/profile/${hateData.hate_tag}`}>
             @{hateData.hate_tag}
           </Link>
-          
         </h3>
         <div className="hate-info">
           <h2 className="hate-text" type="text" name="text">

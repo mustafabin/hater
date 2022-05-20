@@ -50,7 +50,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .hates-feed {

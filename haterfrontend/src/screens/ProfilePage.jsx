@@ -15,13 +15,15 @@ export default function ProfilePage(props) {
   const [datas, setDatas] = useState([]);
   const [search, setSearch] = useState("");
   const [userPosts, setUserPosts] = useState([]);
-  const [slideIn, setSlideIn] = useState({ display: "flex"});
+  const [slideIn, setSlideIn] = useState({ display: "flex" });
 
   let fetchUserPosts = () => {
     fetch(`https://haterbackend.herokuapp.com/allHates?haterid=${user.id}`)
       .then((res) => res.json())
       .then((data) => {
-        setUserPosts(data);
+        if (!data["message"]) {
+          setUserPosts(data);
+        }
       });
   };
   let fetchHates = () => {
@@ -35,36 +37,40 @@ export default function ProfilePage(props) {
     fetchHates();
     fetchUserPosts();
   }, []);
-
+  useEffect(() => {
+    fetchUserPosts();
+  }, [user.id]);
   function setDisplay() {
     if (toggle == true) {
       // setShow("");
-      setSlideIn({  transform: "translate(0%, 0%)"});
+      setSlideIn({ transform: "translate(0%, 0%)" });
     } else {
-      setSlideIn({  transform: "translate(0%, 1000px)"});
+      setSlideIn({ transform: "translate(0%, 1000px)" });
     }
     setToggle((prevCheck) => !prevCheck);
   }
-  
+
   return (
     <div className="proPageContainer">
-      
       <div className="contentContainer">
         <div className="frame"></div>
-          <div className="proPageLinks">
-            <div className="proLogo"></div>
-            <Link to="/home" className="proHome"></Link>
-            <div className="proSearchButton" onClick={setDisplay}></div>
-            <Link to="/" className="proRoot"></Link>
-          </div>
+        <div className="proPageLinks">
+          <div className="proLogo"></div>
+          <Link to="/home" className="proHome"></Link>
+          <div className="proSearchButton" onClick={setDisplay}></div>
+          <Link to="/" className="proRoot"></Link>
+        </div>
         <div className="proPageContent">
           <div className="proBody">
             <div className="proBodyFrame"></div>
             <div className="mainProProfilePic">
-              <img alt={`${user.name} profile`} src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}></img>
+              <img
+                alt={`${user.name} profile`}
+                src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
+              ></img>
             </div>
             <div className="mainProTweetCount">
-            <div className="mainProfileName">@{user.tag}</div>
+              <div className="mainProfileName">@{user.tag}</div>
               <MessageIcon className="hate-crit"></MessageIcon>
               <AutorenewIcon className="hate-renew"></AutorenewIcon>
               <HeartBrokenIcon className="hate-broken"></HeartBrokenIcon>
@@ -94,12 +100,11 @@ export default function ProfilePage(props) {
                   setSearch(e.target.value);
                 }}
               />
-            </form >
+            </form>
             {datas.map(
               (dater) =>
                 dater.hate_tag.toUpperCase().includes(search.toUpperCase()) && (
                   <MiniHates
-                   
                     hate_tag={dater.hate_tag}
                     hater_name={dater.hater_name}
                     hate={dater.hate}
