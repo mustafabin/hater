@@ -14,7 +14,7 @@ export default function PersistProfile() {
         method: "GET",
         headers: headerInfo,
       };
-      fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, options)
+      fetch(`http://127.0.0.1:8000/user/grabProfile`, options)
         .then((res) => res.json())
         .then((data) => {
           store.dispatch({ type: "set", payload: data.profile });

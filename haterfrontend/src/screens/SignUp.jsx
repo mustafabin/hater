@@ -23,12 +23,12 @@ export default function SignUp() {
         },
         body: JSON.stringify(form),
       };
-      fetch(`https://haterbackend.herokuapp.com/user/register`, registerOption)
+      fetch(`http://127.0.0.1:8000/user/register`, registerOption)
         .then((res) => res.json())
         .then((data) => {
           if (!data["error"]) {
             localStorage.setItem("knox", data["token"]);
-            fetch(`https://haterbackend.herokuapp.com/user/grabProfile`, {
+            fetch(`http://127.0.0.1:8000/user/grabProfile`, {
               method: "GET",
               headers: {
                 Accept: "application/json",

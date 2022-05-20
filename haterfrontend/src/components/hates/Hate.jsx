@@ -24,9 +24,7 @@ export default function Hate({ hateData, setToggle }) {
     setHateCount((prev) => prev + 1);
     event.preventDefault();
     await axios.get(
-      `https://haterbackend.herokuapp.com/addDislike?hateid=${
-        hateData.id
-      }&sign=${1}`
+      `http://127.0.0.1:8000/addDislike?hateid=${hateData.id}&sign=${1}`
     );
     hateButtons.current.classList.add("hate-disabled");
     hateButtons.current.style.color = "red";
@@ -36,9 +34,7 @@ export default function Hate({ hateData, setToggle }) {
     setRehateCount((prev) => prev + 1);
     event.preventDefault();
     await axios.get(
-      `https://haterbackend.herokuapp.com/addRehate?hateid=${
-        hateData.id
-      }&sign=${1}`
+      `http://127.0.0.1:8000/addRehate?hateid=${hateData.id}&sign=${1}`
     );
     rehateButtons.current.classList.add("rehate-disabled");
     rehateButtons.current.style.color = "green";

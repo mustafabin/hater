@@ -26,7 +26,6 @@ export default function Hates() {
 
   //to track what page we are on
   useEffect(() => {
-    console.log(hates.length, currentPage[1]);
     hates.length < currentPage[1]
       ? setShowEndButton(true)
       : setShowEndButton(false);

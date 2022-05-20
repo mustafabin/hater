@@ -22,7 +22,7 @@ export default function PostComment(props) {
         post_id: post_id,
       }),
     };
-    fetch(`https://haterbackend.herokuapp.com/addComment`, options)
+    fetch(`http://127.0.0.1:8000/addComment`, options)
       .then((res) => res.json())
       .then(() => (commentText.current.value = ""))
       .then(() => setTogglestate((prev) => !prev))
