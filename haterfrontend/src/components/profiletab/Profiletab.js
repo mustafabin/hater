@@ -29,7 +29,7 @@ function Profile(props) {
       },
       credentials: "include",
     };
-    fetch(`http://127.0.0.1:8000/user/logout`, options)
+    fetch(`https://haterbackend.herokuapp.com/user/logout`, options)
       .then((res) => {
         localStorage.clear();
         store.dispatch({ type: "set", payload: { name: "Guest" } });

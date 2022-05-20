@@ -35,10 +35,12 @@ export default function ModalHate({ setShowModal }) {
         haters: user.id,
       }),
     };
-    fetch(`http://127.0.0.1:8000/createHate`, postOptions).then(() => {
-      setShowModal(false);
-      window.location.reload();
-    });
+    fetch(`https://haterbackend.herokuapp.com/createHate`, postOptions).then(
+      () => {
+        setShowModal(false);
+        window.location.reload();
+      }
+    );
   };
 
   return (

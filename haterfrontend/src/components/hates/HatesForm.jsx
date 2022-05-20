@@ -21,7 +21,7 @@ export default function HatesForm({ toggle, setToggle }) {
         haters: user.id,
       }),
     };
-    fetch(`http://127.0.0.1:8000/createHate`, postOptions)
+    fetch(`https://haterbackend.herokuapp.com/createHate`, postOptions)
       .then((res) => res.json())
       .then((data) => {
         if (!data["error"]) {
