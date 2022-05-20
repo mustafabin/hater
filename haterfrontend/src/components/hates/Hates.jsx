@@ -38,11 +38,7 @@ export default function Hates() {
         <HatesFeed hates={hates} setToggle={setToggle} pageNum={currentPage} />
       </div>
       <div className="hates-feed-pages-div">
-        {!togglePageButton ? (
-          <Button color="error" variant="outlined" onClick={nextPage}>
-            Next Page
-          </Button>
-        ) : (
+        {togglePageButton ? (
           <Button
             color="error"
             variant="outlined"
@@ -52,6 +48,10 @@ export default function Hates() {
             }}
           >
             Back To Front Page
+          </Button>
+        ) : (
+          <Button color="error" variant="outlined" onClick={nextPage}>
+            Next Page
           </Button>
         )}
       </div>
