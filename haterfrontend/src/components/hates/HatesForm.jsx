@@ -27,6 +27,8 @@ export default function HatesForm({ toggle, setToggle }) {
         if (!data["error"]) {
           setToggle((prev) => !prev);
           hateInput.current.value = "";
+        } else {
+          alert(data["error"]);
         }
       });
   };

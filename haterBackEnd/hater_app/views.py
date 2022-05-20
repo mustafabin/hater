@@ -8,8 +8,14 @@ from rest_framework.response import Response
 from django.core import serializers
 from rest_framework.permissions import IsAdminUser
 
-# Create your views here.
-
+def pass_hate_filter(hate):
+    trimed = hate.strip(" ").split(" ")
+    slurs = ["faggot","Faggot","faggots","Faggots","kys","kill your self","Kill your self","Nigger","nigger","nigga","Nigga","Niggers","niggers","niggas","Niggas"]
+    for i in range(len(trimed)):
+      for j in range(len(slurs)):
+        if slurs[j] in trimed[i]:
+          return False
+    return True
 
 class User_profileViewSet(viewsets.ModelViewSet):
     queryset = User_profile.objects.all()
@@ -100,6 +106,8 @@ class AddComment(APIView):
       isAuthenticated = user.is_authenticated
       if isAuthenticated:
           content = request.data["content"] 
+          if pass_hate_filter(content) == False:
+            return Response({'error':"(｡•́︿•̀｡) Please be more mindful 😿"})
           hater = User_profile.objects.get(user = user)
           hate_instance = Hates.objects.get(id = request.data["post_id"])
           new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
@@ -128,11 +136,15 @@ class CreateHate(APIView):
         hate_content = self.request.data 
         hater_id = hate_content["haters"]
         h_body = hate_content["h_body"]
+        if not h_body.strip(" "):
+          return Response({'error':"ヽ(ﾟДﾟ)ﾉ Cant add a empty hate "})
+        if pass_hate_filter(h_body) == False:
+          return Response({'error':"(｡•́︿•̀｡) Please be more mindful 😿"})
         hater = User_profile.objects.get(id=hater_id)
         Hates.objects.create(haters=hater,h_body=h_body,hate_count=0,rehate_count=0,crit_count=0)
         return Response({'message':" ◕‿↼ Updated ! "})
       else:
-        return Response({'message':"ヽ(ﾟДﾟ)ﾉ Not logged in or not is_authenticated"})
+        return Response({'error':"ヽ(ﾟДﾟ)ﾉ Not logged in or not is_authenticated"})
         
     except:
-      return Response({'message':"( ﾟДﾟ)b error; you are most likely messed up by passing in a user id instead of a user_profile id"})
+      return Response({'error':"( ﾟДﾟ)b error; you are most likely messed up by passing in a user id instead of a user_profile id"})

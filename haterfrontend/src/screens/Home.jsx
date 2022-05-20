@@ -21,6 +21,7 @@ function Home() {
         setShow={slideIn}
         name={user.name}
         picture={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
+        homeRoute="/"
       />
       <div className="mid">
         <Hates />
