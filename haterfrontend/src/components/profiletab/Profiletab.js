@@ -2,7 +2,6 @@ import "./Profiletab.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import NewHate from "../newHate/newHate.js";
 import { useSelector } from "react-redux";
 import { store } from "../../state/store.js";
 import { useNavigate } from "react-router-dom";
@@ -66,10 +65,6 @@ function Profile(props) {
           <a onClick={signOut} className="pronavs">
             <div className="protabLinks">Sign Out</div>
           </a>
-          <button onClick={openModal} className="prohate">
-            Hate
-          </button>
-          {showModal ? <NewHate setShowModal={setShowModal} /> : null}
         </div>
       ) : (
         <Link to="/" className="pronavs prohate nav-guest-signup">
