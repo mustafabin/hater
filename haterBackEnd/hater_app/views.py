@@ -106,6 +106,8 @@ class AddComment(APIView):
       isAuthenticated = user.is_authenticated
       if isAuthenticated:
           content = request.data["content"] 
+          if pass_hate_filter(content) == False:
+            return Response({'error':"(｡•́︿•̀｡) Please be more mindful 😿"})
           hater = User_profile.objects.get(user = user)
           hate_instance = Hates.objects.get(id = request.data["post_id"])
           new_hate = Criticism.objects.create(c_body=content,hater=hater,hate = hate_instance)
