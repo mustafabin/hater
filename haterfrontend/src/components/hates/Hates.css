@@ -89,7 +89,11 @@
   margin-left: 10px;
   margin-top: 10px;
 }
-
+.hate-profile-pic img {
+  /* the reason im doing this is b/c of a bug on some iphones */
+  max-width: 75px;
+  max-height: 75px;
+}
 .hate-text,
 .hate-name {
   padding-left: 10px;

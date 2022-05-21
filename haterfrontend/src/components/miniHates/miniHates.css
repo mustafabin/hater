@@ -98,6 +98,11 @@
   align-items: center;
   border: 1px solid var(--hate-red);
 }
+.hateAccountPic img {
+  /* The reason im doing this is b/c of some bugs that occur on iphones enlarging the svg imgs */
+  max-width: 100px;
+  max-height: 100px;
+}
 .miniHateBody {
   display: flex;
   width: 90%;

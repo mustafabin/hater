@@ -20,6 +20,11 @@
   border: 2px solid rgb(159, 152, 152);
   z-index: 2;
 }
+.mainProProfilePic img {
+  /* the reason im doing this is b/c of a bug on some iphones */
+  max-width: 120px;
+  max-height: 120px;
+}
 .proPageContainer {
   display: flex;
   flex-direction: column;
