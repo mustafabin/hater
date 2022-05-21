@@ -264,6 +264,10 @@
   font-size: smaller;
   color: grey;
 }
+.loading-gif {
+  margin: 5rem;
+  max-width: 50vw;
+}
 @media only screen and (max-width: 850px) {
   .hates-form-text {
     width: 70%;
