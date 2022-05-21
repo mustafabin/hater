@@ -36,7 +36,6 @@ export default function HatesForm({ toggle, setToggle }) {
   return (
     <div className="hate-text-box">
       <div className="hate-profile-textbox">
-        <span className="hate-forms-home">Home</span>
         <div className="hate-profile-pic">
           <img
             src={`https://avatars.dicebear.com/api/adventurer/${user.name}.svg?flip=1`}
@@ -49,14 +48,15 @@ export default function HatesForm({ toggle, setToggle }) {
           <input
             ref={hateInput}
             className="hates-form-text"
-            id="hateFormText"
             placeholder="Who's Hatin'"
             name="h_body"
             maxLength="140"
             type="text"
             required
           />
-          <input className="hates-button-up" type="submit" value="Hate" />
+          <div className="hates-form-button-container">
+            <input className="hates-button-up" type="submit" value="Hate" />
+          </div>
         </form>
       </div>
     </div>

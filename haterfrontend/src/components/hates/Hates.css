@@ -23,10 +23,10 @@
 .hate-text-box {
   color: black;
   border: 1px solid rgb(241, 146, 146, 1);
-  text-align: left;
   margin-bottom: 2rem;
-  width: 100%;
+  width: 100vw;
   display: flex;
+  justify-content: center;
   border-radius: 33px;
 }
 
@@ -106,8 +106,8 @@
 
 .hates-form-container {
   display: flex;
-  width: 95%;
-  height: 30%;
+  width: 100%;
+  height: fit-content;
   justify-content: center;
   border-bottom: 1px solid var(--hate-red);
 }
@@ -116,14 +116,10 @@
   border: none;
   outline: none;
   font-size: 25px;
-  height: 80%;
-  width: 100%;
-  resize: none;
   margin-top: 50px;
-  margin-left: 15px;
+  margin-left: 1rem;
   padding: 1rem;
-  max-height: 100%;
-  max-width: 50vw;
+  width: 93.5%;
 }
 
 .hates-form-text:focus {
@@ -131,11 +127,10 @@
 }
 
 .hates-button-up {
-  margin-left: 100%;
-  margin-top: 8%;
+  margin-top: 2rem;
   margin-bottom: 3%;
   border-radius: 25px;
-  background: red;
+  background: var(--hate-red);
   color: white;
   font-weight: 900;
   padding: 1% 6%;
@@ -145,8 +140,19 @@
   font-size: 18px;
   font-style: bold;
   border: none;
+  transition: all ease 0.25s;
 }
-
+.hates-button-up:hover {
+  cursor: pointer;
+  color: var(--hate-red);
+  background-color: rgb(240, 238, 238);
+  border: 1px solid rgb(194, 192, 192);
+}
+.hates-form-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;
+}
 .hates-modal-button-up {
   margin-left: 85%;
   margin-top: 8%;
@@ -245,15 +251,18 @@
   color: grey;
 }
 
-.hate-forms-home {
-  font-size: 25px;
-  padding-left: 20px;
-  font-weight: 800;
-}
 .rehate-disabled {
   pointer-events: none;
 }
 .hate-date .hate-date-time {
   font-size: smaller;
   color: grey;
+}
+@media only screen and (max-width: 850px) {
+  .hates-form-text {
+    width: 70%;
+  }
+  .hates-form-button-container {
+    width: 85%;
+  }
 }
