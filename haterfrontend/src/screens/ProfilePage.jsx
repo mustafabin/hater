@@ -3,7 +3,7 @@ import "../styles/ProfilePage.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MiniHates from "../components/miniHates/miniHates.js";
-import HateAccount from "../components/hateAccount/hateAccount.js"
+import HateAccount from "../components/hateAccount/hateAccount.js";
 import { getAllHates } from "../services/hates.js";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import MessageIcon from "@mui/icons-material/Message";
@@ -90,7 +90,12 @@ export default function ProfilePage(props) {
             </div>
           </div>
           <div className="proSearch" style={slideIn}>
-            <form className="landingForm">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+              className="landingForm"
+            >
               <input
                 className="landingLoginInput"
                 placeholder="Username"
@@ -100,9 +105,6 @@ export default function ProfilePage(props) {
                   e.preventDefault();
                   setSearch(e.target.value);
                 }}
-                onSubmit={(e) => {
-                  e.preventDefault();
-                }}
               />
             </form>
             {datas.map(
@@ -111,7 +113,6 @@ export default function ProfilePage(props) {
                   <HateAccount
                     hate_tag={dater.tag}
                     hate_username={dater.name}
-              
                   />
                 )
             )}
