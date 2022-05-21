@@ -55,6 +55,8 @@
 
 .hates-feed {
   width: 100%;
+  max-height: 100vh;
+  overflow: scroll;
 }
 
 .hates-form-box {
