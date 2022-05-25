@@ -70,7 +70,7 @@ export default function SignUp() {
           onChange={updateFormData}
           className="signup-inputs"
           type="text"
-          placeholder="Enter Username"
+          placeholder="Enter Sign-in id"
           name="username"
           required
         />
@@ -81,7 +81,7 @@ export default function SignUp() {
           onChange={updateFormData}
           className="signup-inputs"
           type="text"
-          placeholder="Enter Tag"
+          placeholder="Enter User Tag"
           name="tag"
           required
         />
